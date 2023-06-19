@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from "cors";
 import * as dotenv from 'dotenv';
 import ROUTES from "./routes.js";
 import setupLogging from "./logging.js";
@@ -10,7 +11,7 @@ dotenv.config();
 const app = express()
 const port = process.env.PORT || 4000;
 
-
+app.use(cors());
 setupLogging(app);
 setupRateLimit(app, ROUTES);
 setupCreditCheck(app, ROUTES);
