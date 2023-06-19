@@ -14,7 +14,7 @@ const ROUTES = [
             max: 5
         },
         proxy: {
-            target: productApiProxyTarget,
+            target: `${productApiProxyTarget}/product`,
             changeOrigin: true,
             pathRewrite: {
                 [`^/product`]: '',
@@ -30,7 +30,7 @@ const ROUTES = [
             max: 5
         },
         proxy: {
-            target: productApiProxyTarget,
+            target: `${productApiProxyTarget}/cart`,
             changeOrigin: true,
             pathRewrite: {
                 [`^/cart`]: '',
@@ -46,7 +46,7 @@ const ROUTES = [
             max: 5
         },
         proxy: {
-            target: productApiProxyTarget,
+            target: `${productApiProxyTarget}/content`,
             changeOrigin: true,
             pathRewrite: {
                 [`^/content`]: '',
@@ -62,7 +62,7 @@ const ROUTES = [
             max: 5
         },
         proxy: {
-            target: productApiProxyTarget,
+            target: `${productApiProxyTarget}/payment`,
             changeOrigin: true,
             pathRewrite: {
                 [`^/payment`]: '',
@@ -78,7 +78,7 @@ const ROUTES = [
             max: 5
         },
         proxy: {
-            target: productApiProxyTarget,
+            target: `${productApiProxyTarget}/public`,
             changeOrigin: true,
             pathRewrite: {
                 [`^/public`]: '',
@@ -87,10 +87,10 @@ const ROUTES = [
     },
     {
         url: '/user',
-        auth: true,
-        creditCheck: true,
+        auth: false,
+        creditCheck: false,
         proxy: {
-            target: userApiProxyTarget,
+            target: `${userApiProxyTarget}/user`,
             changeOrigin: true,
             pathRewrite: {
                 [`^/user`]: '',
